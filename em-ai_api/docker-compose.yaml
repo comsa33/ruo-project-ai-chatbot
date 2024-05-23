@@ -1,0 +1,23 @@
+version: '3.3'
+
+services:
+  ****_api:
+    build: .
+    image: ****_api:1.1
+    restart: unless-stopped
+    ports:
+      - "****:8080"
+    env_file:
+      - .env
+    environment:
+      - OPENAI_MODE=azure # or "openai"
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8080 --timeout-keep-alive 600
+    volumes:
+      - /mnt/***/**_backups:/opt/hf/hub
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              device_ids: ['2', '3']
+              capabilities: [gpu]

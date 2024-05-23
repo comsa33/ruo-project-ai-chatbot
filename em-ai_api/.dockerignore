@@ -1,0 +1,16 @@
+.devcontainer/
+.venv/
+.git
+.gitignore
+__pycache__/
+*.pyc
+
+.vscode/
+
+# log directories
+app/common/log/tech_price_prediction_model
+app/common/log/news-category-add
+app/common/log/news-sentiment-analysis-adapter
+app/common/log/news-esg-qlora
+app/common/log/news_investment_extract
+app/common/log/news-keyphrase-large
